@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+<h1>検索結果</h1>
+<a href="/home/top">一覧画面に戻る</a>
+
+<!-- 検索ボックス -->
+  <%= form_tag('/home/show', :method => 'get') do %>
+    <input type="text" name="search" value="<%= @content %>">
+    <input type="submit" value="検索">
+  <% end %>
+
+<!-- チェックボックス -->
+<div>
+  <% @initials.each do |initial| %>
+    <input type="checkbox" name=<%initial%> value=<%initial%>><%= initial %>
+    <% if initial == "お" or initial == "こ" or initial == "そ" or initial == "と" or initial == "の" or initial == "ほ" or initial == "も" or initial == "よ" or initial == "ろ" or initial == "ん" %>
+      <br>
+    <% end %>
+  <% end %>
+</div>
+
+<!-- 検索結果があった場合、表形式にて表示 -->
+<% if @posts.present? %>
+  <table border="1">
+    <tr>
+      <th>施設名</th>
+      <th>停留所名</th>
+    </tr>
+
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.place_name %></td>
+        <td><%= post.near_stop %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p>条件に合う検索結果は見つかりませんでした</p>
+<% end %>
+
+
+</body>
+</html>
