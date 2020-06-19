@@ -46,9 +46,10 @@
 
 <!-- マスタ登録 -->
 <div>
+  <p>（仮）マスタ登録</p>
   <%= form_tag('/home/master') do %>
-    <input type="text" name="place_name">
-    <input type="text" name="near_stop">
+    施設名<input type="text" name="place_name">
+    停留所名<input type="text" name="near_stop">
     <input type="submit" value="登録">
   <% end %>
 </div>
