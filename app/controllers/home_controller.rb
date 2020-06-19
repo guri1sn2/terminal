@@ -32,4 +32,10 @@ class HomeController < ApplicationController
     ]
   end
 
+  def master
+    @post = Post.new(place_name: params[:place_name], near_stop: params[:near_stop])
+    @post.save
+    redirect_to('/')
+  end
+
 end

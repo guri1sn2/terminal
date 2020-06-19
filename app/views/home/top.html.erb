@@ -44,6 +44,14 @@
   </table>
 </div>
 
+<!-- マスタ登録 -->
+<div>
+  <%= form_tag('/home/master') do %>
+    <input type="text" name="place_name">
+    <input type="text" name="near_stop">
+    <input type="submit" value="登録">
+  <% end %>
+</div>
 
 </body>
 </html>
