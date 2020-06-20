@@ -18,14 +18,15 @@
 </div>
 
 <!-- チェックボックス -->
-<div>
-  <% @initials.each do |initial| %>
-    <input type="checkbox" name=<%initial%> value=<%initial%>><%= initial %>
+<%= form_tag("/home/show_check", :method => 'get') do %>
+  <% @initials.each do |initial|%>
+    <%= check_box "initial", "#{initial}" %><%=initial%>
     <% if initial == "お" or initial == "こ" or initial == "そ" or initial == "と" or initial == "の" or initial == "ほ" or initial == "も" or initial == "よ" or initial == "ろ" or initial == "ん" %>
       <br>
     <% end %>
-  <% end %>
-</div>
+  <%end%>
+  <input type="submit" value="条件を指定して検索">
+<% end %>
 
 <!-- リストを全て表示 -->
 <div>
@@ -33,12 +34,14 @@
     <tr>
       <th>施設名</th>
       <th>停留所名</th>
+      <th>頭文字</th>
     </tr>
 
     <% @posts.each do |post| %>
       <tr>
         <td><%= post.place_name %></td>
         <td><%= post.near_stop %></td>
+        <td><%= post.initial %></td>
       </tr>
     <% end %>
   </table>
@@ -48,8 +51,15 @@
 <div>
   <p>（仮）マスタ登録</p>
   <%= form_tag('/home/master') do %>
-    施設名<input type="text" name="place_name">
-    停留所名<input type="text" name="near_stop">
+    <div>
+      施設名<input type="text" name="place_name">
+    </div>
+    <div>
+      停留所名<input type="text" name="near_stop">
+    </div>
+    <div>
+      頭文字<input type="text" name="initial">
+    </div>
     <input type="submit" value="登録">
   <% end %>
 </div>
