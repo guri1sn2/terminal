@@ -59,5 +59,6 @@ class HomeController < ApplicationController
     @post.save
     redirect_to('/')
   end
+  #コメント
 
 end
