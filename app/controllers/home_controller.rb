@@ -55,7 +55,7 @@ class HomeController < ApplicationController
   end
 
   def master
-    @post = Post.new(place_name: params[:place_name], near_stop: params[:near_stop], initial: params[:initial])
+    @post = Post.new(place_name: params[:place_name], near_stop: params[:near_stop], initial: params[:initial], number: params[:number], root: params[:root], memo: params[:memo], section: params[:section])
     @post.save
     redirect_to('/')
   end

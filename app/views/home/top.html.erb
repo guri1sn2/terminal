@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
+
+</head>
+<body>  <meta charset="UTF-8">
   <link rel="stylesheet" href="css.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-</head>
-<body>
 
 <h1>一覧表示</h1>
 <!-- 検索ボックス -->
@@ -28,13 +28,17 @@
   <input type="submit" value="条件を指定して検索">
 <% end %>
 
-<!-- リストを全て表示 -->
+<!-- リストを表形式で全て表示 -->
 <div>
   <table border="1">
     <tr>
       <th>施設名</th>
       <th>停留所名</th>
       <th>頭文字</th>
+      <th>のりば</th>
+      <th>路線名</th>
+      <th>備考</th>
+      <th>区分</th>
     </tr>
 
     <% @posts.each do |post| %>
@@ -42,6 +46,10 @@
         <td><%= post.place_name %></td>
         <td><%= post.near_stop %></td>
         <td><%= post.initial %></td>
+        <td><%= post.number %></td>
+        <td><%= post.root %></td>
+        <td><%= post.memo %></td>
+        <td><%= post.section %></td>
       </tr>
     <% end %>
   </table>
@@ -51,15 +59,13 @@
 <div>
   <p>（仮）マスタ登録</p>
   <%= form_tag('/home/master') do %>
-    <div>
-      施設名<input type="text" name="place_name">
-    </div>
-    <div>
-      停留所名<input type="text" name="near_stop">
-    </div>
-    <div>
-      頭文字<input type="text" name="initial">
-    </div>
+      施設名<input type="text" name="place_name"><br>
+      停留所名<input type="text" name="near_stop"><br>
+      頭文字<input type="text" name="initial"><br>
+      のりば<input type="text" name="number"><br>
+      路線名<input type="text" name="root"><br>
+      備考<input type="text" name="memo"><br>
+      区分<input type="text" name="section"><br>
     <input type="submit" value="登録">
   <% end %>
 </div>
