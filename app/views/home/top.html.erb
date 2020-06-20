@@ -39,6 +39,7 @@
       <th>路線名</th>
       <th>備考</th>
       <th>区分</th>
+      <th>変更</th>
     </tr>
 
     <% @posts.each do |post| %>
@@ -50,6 +51,9 @@
         <td><%= post.root %></td>
         <td><%= post.memo %></td>
         <td><%= post.section %></td>
+        <td>
+          <%= link_to("変更", "/home/#{post.id}")%>
+        </td>
       </tr>
     <% end %>
   </table>

@@ -1,0 +1,14 @@
+<!-- マスタ変更 -->
+<div>
+  <h2>マスタ変更</h2>
+  <%= form_tag("/home/update/#{@post.id}") do %>
+      施設名<input type="text" name="place_name" value=<%=@post.place_name%>><br>
+      停留所名<input type="text" name="near_stop" value=<%=@post.near_stop%>><br>
+      頭文字<input type="text" name="initial" value=<%=@post.initial%>><br>
+      のりば<input type="text" name="number" value=<%=@post.number%>><br>
+      路線名<input type="text" name="root" value=<%=@post.root%>><br>
+      備考<input type="text" name="memo" value=<%=@post.memo%>><br>
+      区分<input type="text" name="section" value=<%=@post.section%>><br>
+    <input type="submit" value="更新">
+  <% end %>
+</div>

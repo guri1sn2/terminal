@@ -59,6 +59,23 @@ class HomeController < ApplicationController
     @post.save
     redirect_to('/')
   end
-  #コメント
+
+  def update
+    @post = Post.find_by(id: params[:id])
+  end
+  
+  def register
+    @post = Post.find_by(id: params[:id])
+    @post.place_name = params[:place_name]
+    @post.near_stop = params[:near_stop]
+    @post.initial = params[:initial]
+    @post.number = params[:number]
+    @post.root = params[:root]
+    @post.memo = params[:memo]
+    @post.section = params[:section]
+
+    @post.save
+    redirect_to("/")
+  end
 
 end

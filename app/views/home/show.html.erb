@@ -34,6 +34,10 @@
       <th>施設名</th>
       <th>停留所名</th>
       <th>頭文字</th>
+      <th>のりば</th>
+      <th>路線名</th>
+      <th>備考</th>
+      <th>区分</th>
     </tr>
 
     <% @posts.each do |post| %>
@@ -41,6 +45,10 @@
         <td><%= post.place_name %></td>
         <td><%= post.near_stop %></td>
         <td><%= post.initial %></td>
+        <td><%= post.number %></td>
+        <td><%= post.root %></td>
+        <td><%= post.memo %></td>
+        <td><%= post.section %></td>
       </tr>
     <% end %>
   </table>
