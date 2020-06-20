@@ -18,6 +18,14 @@
 
 <!-- チェックボックス -->
 <%= form_tag("/home/show_check", :method => 'get') do %>
+<br>-------------------------------------------------<br>
+  <% @sections.each do |section|%>
+    <%= check_box "section", "#{section}" %><%=section%>
+    <% if section == "飲食店" or section == "泊まる" or section == "観光" or section == "寺院・神社・宗教" %>
+      <br>
+    <% end %>
+  <%end%>
+<br>-------------------------------------------------<br>
   <% @initials.each do |initial|%>
     <%= check_box "initial", "#{initial}" %><%=initial%>
     <% if initial == "お" or initial == "こ" or initial == "そ" or initial == "と" or initial == "の" or initial == "ほ" or initial == "も" or initial == "よ" or initial == "ろ" or initial == "ん" %>
