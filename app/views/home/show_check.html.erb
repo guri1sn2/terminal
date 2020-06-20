@@ -38,6 +38,7 @@
       <th>路線名</th>
       <th>備考</th>
       <th>区分</th>
+      <th>map</th>
     </tr>
 
     <% @posts.each do |post| %>
@@ -49,6 +50,7 @@
         <td><%= post.root %></td>
         <td><%= post.memo %></td>
         <td><%= post.section %></td>
+        <td>map</td>
       </tr>
     <% end %>
   </table>

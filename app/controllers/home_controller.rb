@@ -13,6 +13,16 @@ class HomeController < ApplicationController
       'ら','り','る','れ','ろ',
       'わ','を','ん'
     ]
+    @sections = [
+      '公共施設','冠婚葬祭','金融機関','幼稚園','中学校',
+      '病院','店舗','飲食店','図書館','警察・消防',
+      'ゆうちょ','こども園','高校・特別支援学校','医院','コンビニ',
+      '泊まる','公民館','団地','JA','保育園',
+      '大学・専門学校','歯科','自動車販売','観光','ホール',
+      '福祉施設','パチンコ','小学校','画廊','企業',
+      'ペット関係','その他学校・教習所・塾・予備校・児童館','接骨院・鍼灸・マッサージ','寺院・神社・宗教','娯楽・お風呂',
+      '公園・緑地・スポーツ'
+    ]
   end
 
   def show
@@ -45,13 +55,27 @@ class HomeController < ApplicationController
       'ら','り','る','れ','ろ',
       'わ','を','ん'
     ]
-    @list = []
-    params[:initial].each do |di1, di2|
+    # チェックボックス（区分）を取り出してリスト化
+    @list_section = []
+    params[:section].each do |di1, di2|
       if di2 == "1"
-        @list.push(di1)
+        @list_section.push(di1)
       end
     end
-    @posts = Post.where(initial: @list)
+    # チェックボックス（頭文字）を取り出してリスト化
+    @list_initial = []
+    params[:initial].each do |di1, di2|
+      if di2 == "1"
+        @list_initial.push(di1)
+      end
+    end
+    if @list_section.empty?
+      @posts = Post.where(initial: @list_initial)
+    elsif @list_initial.empty?
+      @posts = Post.where(section: @list_section)
+    else
+      @posts = Post.where(initial: @list_initial, section: @list_section)
+    end
   end
 
   def master
