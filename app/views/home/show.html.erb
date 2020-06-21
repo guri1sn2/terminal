@@ -54,6 +54,7 @@
       <th>路線名</th>
       <th>備考</th>
       <th>区分</th>
+      <th>map</th>
     </tr>
 
     <% @posts.each do |post| %>
@@ -66,14 +67,13 @@
         <td><%= post.root %></td>
         <td><%= post.memo %></td>
         <td><%= post.section %></td>
+        <td><%= link_to("map","https://www.google.com/maps") %></td>
       </tr>
     <% end %>
   </table>
 <% else %>
   <p>条件に合う検索結果は見つかりませんでした</p>
 <% end %>
-
-<p><%= @sample %></p>
 
 </body>
 </html>
