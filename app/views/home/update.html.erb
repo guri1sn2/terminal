@@ -3,6 +3,7 @@
   <h2>マスタ変更</h2>
   <%= form_tag("/home/update/#{@post.id}") do %>
       施設名<input type="text" name="place_name" value=<%=@post.place_name%>><br>
+      かな<input type="text" name="hiragana" value=<%=@post.hiragana%>><br>
       停留所名<input type="text" name="near_stop" value=<%=@post.near_stop%>><br>
       頭文字<input type="text" name="initial" value=<%=@post.initial%>><br>
       のりば<input type="text" name="number" value=<%=@post.number%>><br>

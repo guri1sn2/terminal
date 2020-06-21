@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_20_134029) do
+ActiveRecord::Schema.define(version: 2020_06_20_231409) do
 
   create_table "posts", force: :cascade do |t|
     t.text "place_name"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2020_06_20_134029) do
     t.string "root"
     t.string "memo"
     t.string "section"
+    t.string "hiragana"
   end
 
 end

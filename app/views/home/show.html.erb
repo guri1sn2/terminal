@@ -11,13 +11,20 @@
 <a href="/">一覧画面に戻る</a>
 
 <!-- 検索ボックス -->
+<div>
   <%= form_tag('/home/show', :method => 'get') do %>
-    <input type="text" name="search" value="<%= @content %>">
+    <input type="text" name="search">
     <input type="submit" value="検索">
   <% end %>
 
+  <%= form_tag('/home/show', :method => 'get') do %>
+    <input type="text" name="kana_search">
+    <input type="submit" value="ひらがな検索">
+  <% end %>
+</div>
+
 <!-- チェックボックス -->
-<%= form_tag("/home/show_check", :method => 'get') do %>
+<%= form_tag("/home/show", :method => 'get') do %>
 <br>-------------------------------------------------<br>
   <% @sections.each do |section|%>
     <%= check_box "section", "#{section}" %><%=section%>
@@ -40,6 +47,7 @@
   <table border="1">
     <tr>
       <th>施設名</th>
+      <th>かな</th>
       <th>停留所名</th>
       <th>頭文字</th>
       <th>のりば</th>
@@ -51,6 +59,7 @@
     <% @posts.each do |post| %>
       <tr>
         <td><%= post.place_name %></td>
+        <td><%= post.hiragana %></td>
         <td><%= post.near_stop %></td>
         <td><%= post.initial %></td>
         <td><%= post.number %></td>
