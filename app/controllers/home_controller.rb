@@ -112,12 +112,12 @@ class HomeController < ApplicationController
     redirect_to("/")
   end
 
-  # def map #test
-  #   # redirect_to("https://www.google.com/maps")
-  #   require 'nokogiri'
-  #   html = File.open('https://www.google.com/maps'){|f| f.read }
-  #   doc = Nokogiri::HTML.parse(html)
-  # end
+  def map #test
+    redirect_to("https://www.google.com/maps")
+    # require 'nokogiri'
+    # html = File.open('https://www.google.com/maps'){|f| f.read }
+    # doc = Nokogiri::HTML.parse(html)
+  end
 
 
 
