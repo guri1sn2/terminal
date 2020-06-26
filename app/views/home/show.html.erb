@@ -16,11 +16,6 @@
     <input type="text" name="search">
     <input type="submit" value="検索">
   <% end %>
-
-  <%= form_tag('/home/show', :method => 'get') do %>
-    <input type="text" name="kana_search">
-    <input type="submit" value="ひらがな検索">
-  <% end %>
 </div>
 
 <!-- チェックボックス -->
@@ -67,7 +62,7 @@
         <td><%= post.root %></td>
         <td><%= post.memo %></td>
         <td><%= post.section %></td>
-        <td><%= link_to("map","https://www.google.com/maps") %></td>
+        <td><%= link_to("map","/home/map") %></td>
       </tr>
     <% end %>
   </table>

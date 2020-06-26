@@ -29,9 +29,11 @@ class HomeController < ApplicationController
     # 通常の検索
     if params[:search].present? or params[:search] == ""
       @posts = Post.where('place_name LIKE ?', "%#{params[:search]}%")
-    # ひらがなの検索
-    elsif params[:kana_search].present? or params[:kana_search] == ""
-      @posts = Post.where('hiragana LIKE ?', "%#{params[:kana_search]}%")
+      if @posts.present?
+        @posts = @posts
+      else
+        @posts = Post.where('hiragana LIKE ?', "%#{params[:search]}%")
+      end
     # チェックボックスの検索
     else
       ## チェックボックス（区分）を取り出してリスト化
@@ -109,5 +111,14 @@ class HomeController < ApplicationController
     @post.save
     redirect_to("/")
   end
+
+  # def map #test
+  #   # redirect_to("https://www.google.com/maps")
+  #   require 'nokogiri'
+  #   html = File.open('https://www.google.com/maps'){|f| f.read }
+  #   doc = Nokogiri::HTML.parse(html)
+  # end
+
+
 
 end
