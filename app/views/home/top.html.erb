@@ -50,6 +50,7 @@
       <th>備考</th>
       <th>区分</th>
       <th>変更</th>
+      <th>更新日時</th>
     </tr>
 
     <% @posts.each do |post| %>
@@ -65,6 +66,7 @@
         <td>
           <%= link_to("変更", "/home/#{post.id}")%>
         </td>
+        <td><%= post.updated_at %></td>
       </tr>
     <% end %>
   </table>

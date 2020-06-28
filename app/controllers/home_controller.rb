@@ -29,6 +29,7 @@ class HomeController < ApplicationController
     # 通常の検索
     if params[:search].present? or params[:search] == ""
       @posts = Post.where('place_name LIKE ?', "%#{params[:search]}%")
+      # 漢字でヒットしない場合、ひらがな検索
       if @posts.present?
         @posts = @posts
       else
