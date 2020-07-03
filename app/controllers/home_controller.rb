@@ -126,6 +126,24 @@ class HomeController < ApplicationController
     redirect_to("/")
   end
 
+  def csv
+    require 'csv'
+    CSV.read('app/assets/csv/bus.csv', headers: true, encoding: 'SJIS:utf-8').each do |row|
+      user = Post.new(
+        place_name: row['place_name'],
+        hiragana: row['hiragana'],
+        near_stop: row['near_stop'],
+        initial: row['initial'],
+        number: row['number'],
+        root: row['root'],
+        memo: row['memo'],
+        section: row['section']
+      )
+      user.save
+    end
+    redirect_to("/")
+  end
+
 
 
 end
