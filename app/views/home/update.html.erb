@@ -12,4 +12,8 @@
       区分<input type="text" name="section" value=<%=@post.section%>><br>
     <input type="submit" value="更新">
   <% end %>
+  <br>
+  <%= form_tag("/home/delete/#{@post.id}") do %>
+    <input type="submit" value="削除">
+  <% end %>
 </div>

@@ -120,6 +120,12 @@ class HomeController < ApplicationController
     # doc = Nokogiri::HTML.parse(html)
   end
 
+  def delete
+    @post = Post.find_by(id: params[:id])
+    @post.destroy
+    redirect_to("/")
+  end
+
 
 
 end
