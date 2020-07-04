@@ -41,10 +41,10 @@
 <div>
   <table border="1">
     <tr>
+      <th>頭文字</th>
       <th>施設名</th>
       <th>かな</th>
       <th>停留所名</th>
-      <th>頭文字</th>
       <th>のりば</th>
       <th>路線名</th>
       <th>備考</th>
@@ -55,10 +55,10 @@
 
     <% @posts.each do |post| %>
       <tr>
+        <td><%= post.initial %></td>
         <td><%= post.place_name %></td>
         <td><%= post.hiragana %></td>
         <td><%= post.near_stop %></td>
-        <td><%= post.initial %></td>
         <td><%= post.number %></td>
         <td><%= post.root %></td>
         <td><%= post.memo %></td>

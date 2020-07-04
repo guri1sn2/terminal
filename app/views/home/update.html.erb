@@ -11,6 +11,9 @@
       備考<input type="text" name="memo" value=<%=@post.memo%>><br>
       区分<input type="text" name="section" value=<%=@post.section%>><br>
     <input type="submit" value="更新">
+    <a href="/">
+        <button type="button">キャンセル</button>
+    </a>
   <% end %>
   <br>
   <%= form_tag("/home/delete/#{@post.id}") do %>
