@@ -1,46 +1,46 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-.container {
-  width: 1170px;
-  padding: 0 15px;
-  margin: 0 auto;
-}
+// // Place all the styles related to the home controller here.
+// // They will automatically be included in application.css.
+// // You can use Sass (SCSS) here: http://sass-lang.com/
+// .container {
+//   width: 1170px;
+//   padding: 0 15px;
+//   margin: 0 auto;
+// }
 
-header {
-  height: 65px;
-  width: 100%;
-  background-color: rgba(34, 49, 52, 0.9);
-  /* positionプロパティをfixedに、topを0に指定してください */
-  position: fixed;
-  top: 0;
+// header {
+//   height: 65px;
+//   width: 100%;
+//   background-color: rgba(34, 49, 52, 0.9);
+//   /* positionプロパティをfixedに、topを0に指定してください */
+//   position: fixed;
+//   top: 0;
   
-  /* z-indexを10に指定してください */
-  z-index: 10;
-}
+//   /* z-indexを10に指定してください */
+//   z-index: 10;
+// }
 
-.logo {
-  width: 124px;
-  margin-top: 20px;
-}
+// .logo {
+//   width: 124px;
+//   margin-top: 20px;
+// }
 
-.header-left {
-  float: left;
-}
+// .header-left {
+//   float: left;
+// }
 
-.header-right {
-  float: right;
-  background-color: rgba(255, 255, 255, 0.3);
-  transition: all 0.5s;
-}
+// .header-right {
+//   float: right;
+//   background-color: rgba(255, 255, 255, 0.3);
+//   transition: all 0.5s;
+// }
 
-.header-right:hover {
-  background-color: rgba(255, 255, 255, 0.5);
-}
+// .header-right:hover {
+//   background-color: rgba(255, 255, 255, 0.5);
+// }
 
-.header-right a {
-  line-height: 65px;
-  padding: 0 25px;
-  color: white;
-  display: block;
-}
+// .header-right a {
+//   line-height: 65px;
+//   padding: 0 25px;
+//   color: white;
+//   display: block;
+// }
