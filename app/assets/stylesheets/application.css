@@ -116,9 +116,15 @@ header p {
 .tbl {
   margin: 50px;
   padding: 50px;
+  table-layout: fixed;
+}
+
+.table-width {
+  width: 300px;
 }
 
 .blk {
   background-color: #444444;
   color: white;
 }
+
