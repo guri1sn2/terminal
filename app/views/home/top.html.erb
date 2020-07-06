@@ -28,13 +28,11 @@
       </div>
 
       <!-- 検索ボックス -->
-      <div class="search">
-        <form id="form1">
+      <div class="search" id="form1">
           <%= form_tag('/home/show', :method => 'get') do %>
               <input id="sbox" id="s" placeholder="施設名を入力" type="text" name="search">
               <input id="sbtn" type="submit" value="検索">
           <% end %>
-        </form>
       </div>
       
     </div>
