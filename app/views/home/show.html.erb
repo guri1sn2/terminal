@@ -61,6 +61,9 @@
 
 <!-- 検索結果があった場合、表形式にて表示 -->
 <% if @posts.present? %>
+    <div class=gmap>
+      <a href="https://www.google.com/maps" class="btn btn-info">GoogleMapを開く</a>
+    </div>
     <div class="tbl-out">
       <table class="tbl table table-hover table-sm">
         <thead class="blk">
@@ -74,7 +77,6 @@
             <th scope="col" class="table-width">備考</th>
             <th scope="col">区分</th>
             <th class="table-width-a" scope="col">変更</th>
-            <th scope="col">更新日時</th>
           </tr>
         </thead>
 
@@ -91,7 +93,6 @@
             <td>
               <%= link_to("変更", "/home/#{post.id}")%>
             </td>
-            <td><%= post.updated_at %></td>
           </tr>
         <% end %>
       </table>
