@@ -16,11 +16,16 @@
   </head>
 
   <body>
+    <header>
+      <p>最寄りバス停検索</p>
+      <div class="logo">
+      <img src="/assets/logo.png" alt="">
+     </div>
+    </header>
 
     <div class="back">
 
       <div class="main">
-        <h1>/最寄りバス停検索/</h1>
         <p>データベース一覧表示</p>
       </div>
 
@@ -38,10 +43,9 @@
     <!-- チェックボックス -->
     <div class="button-area">
       <%= form_tag("/home/show", :method => 'get') do %>
-      <br>-------------------------------------------------<br>
         <% @sections.each do |section|%>
           <%= check_box "section", "#{section}" %><%=section%>
-          <% if section == "飲食店" or section == "泊まる" or section == "観光" or section == "寺院・神社・宗教" %>
+          <% if section == "飲食店" or section == "泊まる" or section == "観光" or section == "接骨院・鍼灸・マッサージ" %>
             <br>
           <% end %>
         <%end%>
@@ -57,10 +61,11 @@
     </div>
 
     <!-- リストを表形式で全て表示 -->
+    <div class="tbl-out">
       <table class="tbl table table-hover table-sm">
         <thead class="blk">
           <tr>
-            <th scope="col">頭文字</th>
+            <th class="table-width-a" scope="col">頭文字</th>
             <th scope="col">施設名</th>
             <th class="table-width" scope="col">かな</th>
             <th scope="col">停留所名</th>
@@ -90,7 +95,7 @@
           </tr>
         <% end %>
       </table>
-
+    </div>
     <!-- マスタ登録 -->
     <div>
       <p>（仮）マスタ登録</p>
