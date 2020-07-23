@@ -128,4 +128,8 @@ body {
     border: medium solid gray;
     background-color: #f5f5f5;
   }
+
+  .error {
+    margin-left: 50px;
+  }
   
