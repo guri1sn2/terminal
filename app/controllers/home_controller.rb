@@ -144,6 +144,10 @@ class HomeController < ApplicationController
     redirect_to("/")
   end
 
+  def add
+    
+  end
+
 
 
 end

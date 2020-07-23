@@ -1,0 +1,17 @@
+    <!-- マスタ登録 -->
+    <div>
+      <p>（仮）マスタ登録</p>
+      <%= form_tag('/home/master') do %>
+          施設名<input type="text" name="place_name"><br>
+          かな<input type="text", name="hiragana"><br>
+          停留所名<input type="text" name="near_stop"><br>
+          頭文字<input type="text" name="initial"><br>
+          のりば<input type="text" name="number"><br>
+          路線名<input type="text" name="root"><br>
+          備考<input type="text" name="memo"><br>
+          区分<input type="text" name="section"><br>
+        <input type="submit" value="登録">
+      <% end %>
+    </div>
+
+    <a href="/home/csv">csvを取り込む</a>
