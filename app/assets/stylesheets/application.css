@@ -100,16 +100,14 @@ body {
   color:#666;/*検索ボタンマウスオーバー時のフォントカラー*/
   }
 
-  .tbl-out {
-    padding: 2%;
+  table {
+    border-collapse: separate;
+    border-spacing: 0px 15px;
+    word-break: break-all;
   }
-  
-  .table-width {
-  width: 300px;
-  }
-  
-  .table-width-a {
-    width: 60px;
+
+  .table-out {
+    margin: 2%;
   }
   
 
