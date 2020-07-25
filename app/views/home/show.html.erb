@@ -30,19 +30,21 @@
       </div>
 
       <!-- 検索ボックス -->
-      <div class="search" id="form1">
-          <%= form_tag('/home/show', :method => 'get') do %>
-              <input id="sbox" id="s" placeholder="施設名を入力" type="text" name="search">
-              <input id="sbtn" type="submit" value="検索">
-          <% end %>
-      </div>
+      
+      <!-- <div class="search" id="form1">
+        <%= form_tag('/home/show', :method => 'get') do %>
+            <input id="sbox" id="s" placeholder="施設名を入力" type="text" name="search">
+            <input id="sbtn" type="submit" value="検索">
+        <% end %>
+      </div>  -->
+     
       <div class="home">
         <a href="/" class="btn btn-info">一覧画面に戻る</a>
       </div>
     </div>
 
     <!-- チェックボックス -->
-    <div class="button-area">
+    <!-- <div class="button-area">
       <%= form_tag("/home/show", :method => 'get') do %>
         <% @sections.each do |section|%>
           <%= check_box "section", "#{section}" %><%=section%>
@@ -59,7 +61,7 @@
         <%end%>
         <input type="submit" value="条件を指定して検索">
       <% end %>
-    </div>
+    </div> -->
 
 <!-- 検索結果があった場合、表形式にて表示 -->
 <% if @posts.present? %>

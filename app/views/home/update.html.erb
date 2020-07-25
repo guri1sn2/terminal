@@ -1,22 +1,66 @@
-<!-- マスタ変更 -->
-<div>
-  <h2>マスタ変更</h2>
-  <%= form_tag("/home/update/#{@post.id}") do %>
-      施設名<input type="text" name="place_name" value=<%=@post.place_name%>><br>
-      かな<input type="text" name="hiragana" value=<%=@post.hiragana%>><br>
-      停留所名<input type="text" name="near_stop" value=<%=@post.near_stop%>><br>
-      頭文字<input type="text" name="initial" value=<%=@post.initial%>><br>
-      のりば<input type="text" name="number" value=<%=@post.number%>><br>
-      路線名<input type="text" name="root" value=<%=@post.root%>><br>
-      備考<input type="text" name="memo" value=<%=@post.memo%>><br>
-      区分<input type="text" name="section" value=<%=@post.section%>><br>
-    <input type="submit" value="更新">
-    <a href="/">
-        <button type="button">キャンセル</button>
-    </a>
-  <% end %>
-  <br>
-  <%= form_tag("/home/delete/#{@post.id}") do %>
-    <input type="submit" value="削除">
-  <% end %>
-</div>
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>Terminal</title>
+    <meta name="csrf-param" content="authenticity_token" />
+    <meta name="csrf-token" content="xw0hXWfqs7zFdYlBDH7+bzuM5je7Vh5eOaVFrYqElwvThYyDKW3Zugh1YTt6wn76Azeuvnw4S//MVqlz7qNGQQ==" />
+    <link rel="stylesheet" media="all" href="/assets/application-d8874d35a62cc272e848207278cd92f2c1fc66676db12b360c24448a8630afac.css" data-turbolinks-track="reload" />
+    <script src="/assets/application-a226d6f5a204577a825ee41bf04abd6c23ce14b8b732c2bcf883c148480af0f8.js" data-turbolinks-track="reload"></script>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+
+  <body>
+    <div class="components">
+      <h2 class="components">マスタ変更</h2>
+      <div class="content">
+        <%= form_tag("/home/update/#{@post.id}") do %>
+            施設名 <input type="text" class="forms" name="place_name" value=<%=@post.place_name%>><br>
+            かな <input type="text" class="forms" name="hiragana" value=<%=@post.hiragana%>><br>
+            停留所名 <input type="text" class="forms" name="near_stop" value=<%=@post.near_stop%>><br>
+            頭文字 <input type="text" class="forms" name="initial" value=<%=@post.initial%>><br>
+            のりば <input type="text" class="forms" name="number" value=<%=@post.number%>><br>
+            路線名 <input type="text" class="forms" name="root" value=<%=@post.root%>><br>
+            備考 <input type="text" class="forms" name="memo" value=<%=@post.memo%>><br>
+            区分 <input type="text" class="forms" name="section" value=<%=@post.section%>><br>
+          <input type="submit" class="update btn btn-info" value="更新">
+          <a href="/" class="update btn btn-secondary">
+            キャンセル
+          </a>
+        <% end %>
+        <br>
+
+        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
+          削除
+        </button>
+    </div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">マスタの削除</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                編集中のマスタを削除しますか？
+              </div>
+              <div class="modal-footer">
+                <%= form_tag("/home/delete/#{@post.id}") do %>
+                  <input type="submit" class="btn btn-primary" value="削除">
+                <% end %>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </body>
+</html>
