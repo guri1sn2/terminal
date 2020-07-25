@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
+  get 'home/csv' => 'home#csv'
   get '/' => 'home#top'
   get 'home/add' => 'home#add' 
-  get 'home/csv' => 'home#csv'
   get 'home/show' => 'home#show'
   get 'home/map' => 'home#map'
   post 'home/master' => "home#master"

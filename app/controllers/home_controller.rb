@@ -128,7 +128,7 @@ class HomeController < ApplicationController
 
   def csv
     require 'csv'
-    CSV.read('app/assets/csv/bus.csv', headers: true, encoding: 'SJIS:utf-8').each do |row|
+    CSV.read('app/assets/csv/bus.csv', headers: true, encoding: 'utf-8').each do |row|
       user = Post.new(
         place_name: row['place_name'],
         hiragana: row['hiragana'],
