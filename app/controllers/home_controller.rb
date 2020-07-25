@@ -92,11 +92,6 @@ class HomeController < ApplicationController
     redirect_to('/')
   end
 
-
-
-  def update
-    @post = Post.find_by(id: params[:id])
-  end
   
   def register
     @post = Post.find_by(id: params[:id])
@@ -148,6 +143,16 @@ class HomeController < ApplicationController
     
   end
 
+  def destroy
+    post = Post.all
+    post.destroy_all
+    redirect_to("/")
+  end
+
+  def update
+    @post = Post.find_by(id: params[:id])
+  end
 
 
+  
 end
