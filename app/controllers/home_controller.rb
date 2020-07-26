@@ -26,37 +26,42 @@ class HomeController < ApplicationController
   end
 
   def show
-    # 通常の検索
-    if params[:search].present? or params[:search] == ""
-      @posts = Post.where('place_name LIKE ?', "%#{params[:search]}%")
-      # 漢字でヒットしない場合、ひらがな検索
-      if @posts.present?
-        @posts = @posts
-      else
-        @posts = Post.where('hiragana LIKE ?', "%#{params[:search]}%")
+
+    # チェックボックス（区分）を取り出してリスト化
+    @list_section = []
+    params[:section].each do |di1, di2|
+      if di2 == "1"
+        @list_section.push(di1)
       end
-    # チェックボックスの検索
-    else
-      ## チェックボックス（区分）を取り出してリスト化
-      @list_section = []
-      params[:section].each do |di1, di2|
-        if di2 == "1"
-          @list_section.push(di1)
+    end
+    # チェックボックス（頭文字）を取り出してリスト化
+    @list_initial = []
+    params[:initial].each do |di1, di2|
+      if di2 == "1"
+        @list_initial.push(di1)
+      end
+    end
+
+    # 検索ボックスに値が入っている場合
+    if params[:search].present?
+      # @postsで検索ボックスのみでフィルターをかける。その後、if文で、チェックボックスの有無に応じて@postsを更新する。
+      @posts = Post.where('place_name LIKE ?', "%#{params[:search]}%") .or(Post.where('hiragana LIKE ?', "%#{params[:search]}%"))
+        if @list_section.empty? && @list_initial.present? #sectionのみ空の場合
+          @posts = Post.where('place_name LIKE ?', "%#{params[:search]}%") .or(Post.where('hiragana LIKE ?', "%#{params[:search]}%")).where(initial: @list_initial)
+        elsif @list_initial.empty? && @list_section.present? #initialのみ空の場合
+          @posts = Post.where('place_name LIKE ?', "%#{params[:search]}%") .or(Post.where('hiragana LIKE ?', "%#{params[:search]}%")).where(section: @list_section)
+        elsif @list_section.present? && @list_initial.present? #両方チェックが入っている場合
+          @posts = Post.where('place_name LIKE ?', "%#{params[:search]}%") .or(Post.where('hiragana LIKE ?', "%#{params[:search]}%")).where(initial: @list_initial, section: @list_section)
         end
-      end
-      ## チェックボックス（頭文字）を取り出してリスト化
-      @list_initial = []
-      params[:initial].each do |di1, di2|
-        if di2 == "1"
-          @list_initial.push(di1)
-        end
-      end
+
+    # 検索ボックスに値が入っていない場合
+    elsif params[:search] == ""
       ## どちらかが空の場合は他方の条件のみで検索を実行、両方チェックされている場合はand検索
-      if @list_section.empty?
+      if @list_section.empty? && @list_initial.present? #sectionのみ空の場合
         @posts = Post.where(initial: @list_initial)
-      elsif @list_initial.empty?
+      elsif @list_initial.empty? && @list_section.present? #initialのみ空の場合
         @posts = Post.where(section: @list_section)
-      else
+      elsif @list_section.present? && @list_initial.present? #両方チェックが入っている場合
         @posts = Post.where(initial: @list_initial, section: @list_section)
       end
     end

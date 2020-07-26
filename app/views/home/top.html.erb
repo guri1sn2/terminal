@@ -30,36 +30,31 @@
       </div>
 
       <!-- 検索ボックス -->
+    <%= form_tag('/home/show', :method => 'get') do %>
       <div class="search" id="form1">
-          <%= form_tag('/home/show', :method => 'get') do %>
-              <input id="sbox" id="s" placeholder="施設名を入力" type="text" name="search">
-              <input id="sbtn" type="submit" value="検索">
-          <% end %>
+        <input id="sbox" id="s" placeholder="施設名を入力" type="text" name="search">
+        <input id="sbtn" type="submit" value="検索">
       </div>
       
-    </div>
-
-
-    <!-- チェックボックス  -->
-    <div class="button-area">
-      <%= form_tag("/home/show", :method => 'get') do %>
+      </div>
+        <!-- チェックボックス  -->
+        <div class="button-area">
         <% @sections.each do |section|%>
-          <%= check_box "section", "#{section}" %><%=section%>
+          <%= check_box "section", "#{section}" %><%= section%>
           <% if section == "飲食店" or section == "泊まる" or section == "観光" or section == "接骨院・鍼灸・マッサージ" %>
             <br>
           <% end %>
         <%end%>
 
-      <br>--------------------------------------------<br>
+        <br>--------------------------------------------<br>
         <% @initials.each do |initial|%>
           <%= check_box "initial", "#{initial}" %><%=initial%>
           <% if initial == "お" or initial == "こ" or initial == "そ" or initial == "と" or initial == "の" or initial == "ほ" or initial == "も" or initial == "よ" or initial == "ろ" or initial == "ん" %>
             <br>
           <% end %>
         <%end%>
-        <input type="submit" value="条件を指定して検索">
-      <% end %>
-    </div>
+      </div>
+    <% end %>
     <a href="/home/add" class="register">施設名を登録</a>
     <!-- リストを表形式で全て表示 -->
     <div class="table-out">
