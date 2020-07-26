@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get '/' => 'home#top'
   get 'home/add' => 'home#add' 
   get 'home/show' => 'home#show'
-  get 'home/map' => 'home#map'
+  get '/list' => 'home#list'
   get 'home/destroy' => 'home#destroy'
   post 'home/master' => "home#master"
   post 'home/update/:id' => "home#register"

@@ -1,6 +1,5 @@
 class HomeController < ApplicationController
   def top
-    @posts = Post.all
     @initials = [
       'あ','い','う','え','お',
       'か','き','く','け','こ',
@@ -97,7 +96,7 @@ class HomeController < ApplicationController
     redirect_to('/')
   end
 
-  
+
   def register
     @post = Post.find_by(id: params[:id])
     @post.place_name = params[:place_name]
@@ -111,13 +110,6 @@ class HomeController < ApplicationController
 
     @post.save
     redirect_to("/")
-  end
-
-  def map #test
-    redirect_to("https://www.google.com/maps")
-    # require 'nokogiri'
-    # html = File.open('https://www.google.com/maps'){|f| f.read }
-    # doc = Nokogiri::HTML.parse(html)
   end
 
   def delete
@@ -158,6 +150,11 @@ class HomeController < ApplicationController
     @post = Post.find_by(id: params[:id])
   end
 
+  def list
+    @posts = Post.all
+  end
 
+
+  
   
 end

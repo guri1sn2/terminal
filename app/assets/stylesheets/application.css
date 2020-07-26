@@ -11,12 +11,11 @@ body {
   background: #444444;
   color: #eee;
   font-size: 25px;
-  margin: 0px;
   padding: 6px;
   width: 100%;
   height: 50px;
   float: right;
-  margin: 0em;
+  margin: 0;
   }
   
   .logo {
@@ -43,8 +42,7 @@ body {
   #form1{
   position: relative;/*フォームの相対位置*/
   max-width: 520px;/*フォームのサイズ*/
-  margin-bottom: 15px;/*フォームの下に余白*/
-  margin: 0px auto;
+  margin: 50px auto;
   }
   /*検索ボックス*/
   #sbox{
@@ -102,12 +100,12 @@ body {
 
   table {
     border-collapse: separate;
-    border-spacing: 0px 15px;
+    border-spacing: 0;
     word-break: break-all;
   }
 
   .table-out {
-    margin: 2%;
+    margin: 50px 2% 50px 2%;
   }
   
 
@@ -156,10 +154,10 @@ body {
     margin-top: 3px;
   }
 
-  .components {
+  .register {
     margin: 2%;
   }
 
-  .register {
-    margin: 2%;
+  .db-link {
+    margin-left: 20px;
   }
